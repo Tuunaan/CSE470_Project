@@ -13,7 +13,7 @@ const Contact = () => {
           />
         </div>
         <div className="col-md-4">
-          <h1 className="bg-dark p-2 text-white text-center">CONTACT US</h1>
+          <h1 className="custom-bg p-2 text-white text-center">CONTACT US</h1>
           <p className="text-justify mt-2">
             If you have any query about prodduct, feel free to call anytime we 24X7
             avaialible

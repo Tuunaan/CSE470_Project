@@ -6,10 +6,8 @@
   box-sizing: border-box;
 }
 
-/* font-family: 'Poppins', sans-serif; */
-/* font-family: 'Playfair Display', serif; */
 
-/* //navbar css */
+/* navbar css */
 .navbar {
   font-family: "Poppins", sans-serif;
   font-size: 17px;
@@ -18,7 +16,7 @@
   box-shadow: 0 8px 6px -6px rgb(152, 60, 116);
   --webkit-box-shadow: 0 8px 6px -6px rgb(13, 7, 10);
   border-bottom: solid rgb(156, 95, 134) !important;
-  
+  background-color: #ff69b4;
 }
 
 .nav-link {
@@ -36,13 +34,12 @@
   letter-spacing: 3px;
   
 }
-/* =============================
-==========footer============= */
+/* ==========footer============= */
 
 .footer {
   color: white;
   padding: 25px;
-  background: #b63b82; /* fallback for old browsers */
+  background: #b63b82;
   background: -webkit-linear-gradient(
     to right,
     #e26fbf,
@@ -61,8 +58,7 @@
   color: #ffefba;
   border-bottom: 1px solid #ffefba;
 }
-/* =================================
-======== page not found css ======= */
+/* ======== page not found css ======= */
 .pnf {
   display: flex;
   min-height: 65vh;
@@ -91,7 +87,7 @@
   background-color: rgb(191, 48, 148);
   color: white;
 }
-/* ========================================= */
+
 /* =========contact us ========= */
 .contactus {
   margin: 0;
@@ -100,4 +96,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.custom-bg {
+  background-color: #ff69b4;
 }
