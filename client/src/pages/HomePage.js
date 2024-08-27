@@ -17,6 +17,8 @@ const About = () => {
           </p>
         </div>
         <h1>Tunan</h1>
+        <h1>Tunan</h1>
+        <h1>Tunan</h1>
       </div>
     </Layout>
   );
