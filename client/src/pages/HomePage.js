@@ -25,7 +25,7 @@ const HomePage = () => {
   return (
     <Layout title={"Best offers "}>
       <h1>HomePage</h1>
-      <pre>{JSON.stringify(auth, null, 4)}</pre>
+      {/* <pre>{JSON.stringify(auth, null, 4)}</pre> */}
     </Layout>
   );
 };
