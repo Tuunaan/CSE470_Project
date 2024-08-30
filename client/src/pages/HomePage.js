@@ -30,4 +30,4 @@ const HomePage = () => {
   );
 };
 
-export default About;
+export default HomePage;
