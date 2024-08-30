@@ -16,10 +16,6 @@ const About = () => {
           <p className="text-justify mt-2 montserrat-font">
           </p>
         </div>
-        <h1>Tunan</h1>
-        <h1>Tunan</h1>
-        <h1>Tunan</h1>
-        <h1>Tunan</h1>
       </div>
     </Layout>
   );
