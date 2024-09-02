@@ -111,3 +111,8 @@
 .custom-bg {
   background-color: #ff69b4;
 }
+
+.product-link{
+  text-decoration: none!important;
+  color:black;
+}
