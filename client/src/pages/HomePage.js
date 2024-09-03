@@ -2,11 +2,30 @@ import React, {useState, useEffect} from "react";
 import Layout from "./../components/Layout/Layout";
 import { useAuth } from "../context/auth";
 import axios from "axios";
+import{Checkbox} from 'antd';
+
 const HomePage = () => {
   const [auth, setAuth] = useAuth();
   const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
+ 
   
+  //get all categories
+  const getAllCategory = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/category/get-category");
+      if (data?.success) {
+        setCategories(data?.category);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllCategory();
+  }, []);
+
  //get products
  const getAllProducts = async () => {
   try{
@@ -25,8 +44,15 @@ useEffect(()=>{
   return (
     <Layout title={"All products - Best offers "}>
     <div className="row mt-3">
-      <div className="col-md-3">
+      <div className="col-md-2">
         <h4 className="text-center">Filter by Category</h4>
+        <div className="d-flex flex-column">
+        {categories?.map((c) => (
+          <Checkbox key={c._id} onChange={(e)=> console.log(e)}>
+            {c.name}
+          </Checkbox>
+        ))}
+        </div>
       </div>
       <div className="col-md-9">
         <h1 className="text-center">All Products</h1>
@@ -37,6 +63,8 @@ useEffect(()=>{
                     <div className="card-body">
                         <h5 className="card-title">{p.name}</h5>
                         <p className="card-text">{p.description}</p>
+                        <button class="btn btn-primary ms-1">More Details</button>
+                        <button class="btn btn-secondary ms-1">ADD TO CART</button>
                     </div>
                 </div>
                 ))}
