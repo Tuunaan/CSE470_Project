@@ -128,7 +128,7 @@ export const deleteProductController = async (req, res) => {
   }
 };
 
-//upate producta
+//upate product
 export const updateProductController = async (req, res) => {
   try {
     const { name, description, price, category, quantity, shipping } =
@@ -241,3 +241,26 @@ export const productListController= async (req, res) => {
   })
   }
 }
+
+// search product
+export const searchProductController = async (req, res) => {
+  try {
+    const { keyword } = req.params;
+    const resutls = await productModel
+      .find({
+        $or: [
+          { name: { $regex: keyword, $options: "i" } },
+          { description: { $regex: keyword, $options: "i" } },
+        ],
+      })
+      .select("-photo");
+    res.json(resutls);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error In Search Product API",
+      error,
+    });
+  }
+};

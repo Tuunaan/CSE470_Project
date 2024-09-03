@@ -159,7 +159,7 @@ const filterProduct = async () => {
             <button className="btn btn-warning" 
             onClick={(e)=> {
               e.preventDefault();
-              setPage(page+1);
+              setPage(page + 1);
             } }
             >
               {loading? "Loading ...": "Loadmore"}
