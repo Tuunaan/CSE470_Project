@@ -4,10 +4,12 @@ import {
   deleteProductController,
   getProductController,
   getSingleProductController,
+  productCategoryController,
   productCountController,
   productFiltersController,
   productListController,
   productPhotoController,
+  realtedProductController,
   searchProductController,
   updateProductController,
 } from "../controllers/productController.js";
@@ -42,10 +44,10 @@ router.get("/get-product/:slug", getSingleProductController);
 //get photo
 router.get("/product-photo/:pid", productPhotoController);
 
-//delete product
-router.delete("/", deleteProductController);
+//delete rproduct
+router.delete("/delete-product/:pid", deleteProductController);
 
-//filter product 
+//filter product
 router.post("/product-filters", productFiltersController);
 
 //product count
@@ -58,6 +60,9 @@ router.get("/product-list/:page", productListController);
 router.get("/search/:keyword", searchProductController);
 
 //similar product
-router.get("/related-product/:pid/:cid", relatedProductController);
+router.get("/related-product/:pid/:cid", realtedProductController);
+
+//category wise product
+router.get("/product-category/:slug", productCategoryController);
 
 export default router;
