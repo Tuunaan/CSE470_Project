@@ -3,23 +3,21 @@ import Layout from "./../components/Layout/Layout";
 
 const Policy = () => {
   return (
-    <Layout title={"Policies - Notun Jama"}>
+    <Layout title={"Policies"}>
       <div className="row contactus ">
         <div className="col-md-6 ">
           <img
-            src="/images/contactus.jpeg"
+            src="/images/policy.jpg"
             alt="contactus"
             style={{ width: "100%" }}
           />
         </div>
+
         <div className="col-md-4">
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
+        <h1 className="custom-bg p-2 text-white text-center">Our Policy</h1>
+          <p>Our privacy policy</p>
+          <p>Our privacy policy</p>
+          <p>Our privacy policy</p>
         </div>
       </div>
     </Layout>

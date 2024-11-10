@@ -21,7 +21,7 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg"> 
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -36,10 +36,12 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
-              🛒 Notun Jama
+                  The Arannya Kanon App - T.A.K.A.
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput />
+
+            
               <li className="nav-item">
                 <NavLink to="/" className="nav-link ">
                   Home
@@ -51,12 +53,12 @@ const Header = () => {
                   to={"/categories"}
                   data-bs-toggle="dropdown"
                 >
-                  Categories
+                  Types
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
                     <Link className="dropdown-item" to={"/categories"}>
-                      All Categories
+                      All Types
                     </Link>
                   </li>
                   {categories?.map((c) => (
@@ -124,7 +126,7 @@ const Header = () => {
               <li className="nav-item">
                 <Badge count={cart?.length} showZero>
                   <NavLink to="/cart" className="nav-link">
-                    Cart 
+                    My Busket 
                   </NavLink>
       
                 </Badge>
@@ -140,3 +142,5 @@ const Header = () => {
 };
 
 export default Header;
+
+// bg-body-tertiary 

@@ -28,7 +28,7 @@ const Products = () => {
                 <AdminMenu/>
             </div>
             <div className="col-md-9">
-                <h1 className= "text-center">All Products List</h1>
+                <h1 className= "text-center custom-bg p-2 text-white text-center">All Plants</h1>
                 <div className="d-flex flex-wrap">
                 {products?.map((p) => (
                 <Link key={p._id} to={`/dashboard/admin/product/${p.slug}`}

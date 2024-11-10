@@ -9,9 +9,9 @@ const CategoryProduct = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    if (params?.slug) getPrductsByCat();
+    if (params?.slug) getProductsByCat();
   }, [params?.slug]);
-  const getPrductsByCat = async () => {
+  const getProductsByCat = async () => {
     try {
       const { data } = await axios.get(
         `/api/v1/product/product-category/${params.slug}`
@@ -52,10 +52,10 @@ const CategoryProduct = () => {
                       className="btn btn-primary ms-1"
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
-                      More Details
+                      Know More
                     </button>
                     <button className="btn btn-secondary ms-1">
-                      ADD TO CART
+                      Basket it !
                     </button>
                   </div>
                 </div>

@@ -3,7 +3,7 @@ import Layout from './../../components/Layout/Layout';
 import UserMenu from "../../components/Layout/UserMenu";
 import { useAuth } from '../../context/auth';
 import toast from 'react-hot-toast';
-import axios from 'axios'; // Corrected this line
+import axios from 'axios'; 
 
 const Profile = () => {
   // context
@@ -54,6 +54,7 @@ const Profile = () => {
 
   return (
     <Layout title={"Your Profile"}>
+      <h1 className="custom-bg p-2 text-white text-center">User profile</h1>
       <div className="container-fluid p-3 m-3">
         <div className="row">
           <div className="col-md-3">

@@ -12,13 +12,13 @@ import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
 //routing
-//REGISTER || METHOD POST
+//register - post
 router.post("/register", registerController);
 
-//LOGIN || POST
+//login - post
 router.post("/login", loginController);
 
-//Forgot Password || POST
+//forgot pass - post
 router.post("/forgot-password", forgotPasswordController);
 
 //test routes
@@ -28,6 +28,7 @@ router.get("/test", requireSignIn, isAdmin, testController);
 router.get("/user-auth", requireSignIn, (req, res) => {
   res.status(200).send({ ok: true });
 });
+
 //protected Admin route auth
 router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
   res.status(200).send({ ok: true });
@@ -35,5 +36,6 @@ router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
 
 //update profile
 router.put('/profile', requireSignIn, updateProfileController)
+
 
 export default router;
