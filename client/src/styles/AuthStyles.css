@@ -9,7 +9,7 @@
   min-height: 70vh;
   flex-direction: column;
   background-color: #123524;
-  background-image: url(../../../../../../Downloads/erusmus.png); /*  linear-gradient(0deg,  #ffffff 0%,  #123524 100%); */
+  background-image: src="/client/public/images/erusmus.png"; /*  linear-gradient(0deg,  #ffffff 0%,  #123524 100%); */
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
