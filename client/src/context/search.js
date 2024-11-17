@@ -8,12 +8,14 @@ const SearchProvider = ({ children }) => {
   });
 
   return (
+
     <SearchContext.Provider value={[auth, setAuth]}>
       {children}
     </SearchContext.Provider>
+
   );
 };
-
+//
 // custom hook
 const useSearch = () => useContext(SearchContext);
 

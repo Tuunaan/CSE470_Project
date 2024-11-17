@@ -30,3 +30,4 @@ export const Prices = [
         array:[101, 9999],
     },
 ];
+//tun
