@@ -70,7 +70,7 @@ const CreateProduct = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-          <h1 className="custom-bg p-2 text-white text-center">Create Product</h1>
+          <h1 className="custom-bg p-2 text-white text-center">Create Plant</h1>
             <div className ="m-1 w-75">
               <Select bordered={false} 
               placeholder="Select Category" 
@@ -157,7 +157,7 @@ const CreateProduct = () => {
                 </Select>
                 </div>
                 <div className="mt-3">
-                  <button className="btn btn-primary" onClick={handleCreate}>CREATE PRODUCT</button>
+                  <button className="btn btn-primary" onClick={handleCreate}>CREATE</button>
                 </div>
               </div>
             </div>

@@ -11,15 +11,16 @@ import {
 const router = express.Router();
 
 //routes
-// create category
+// create types
 router.post(
   "/create-category",
+  
   requireSignIn,
   isAdmin,
   createCategoryController
 );
 
-//update category
+//update types
 router.put(
   "/update-category/:id",
   requireSignIn,
@@ -27,13 +28,13 @@ router.put(
   updateCategoryController
 );
 
-//getALl category
+//getALl types
 router.get("/get-category", categoryController);
 
-//single category
+//single types
 router.get("/single-category/:slug", singleCategoryController);
 
-//delete category
+//delete types
 router.delete(
   "/delete-category/:id",
   requireSignIn,

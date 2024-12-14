@@ -30,6 +30,7 @@ const CreateCategory = () => {
     }
   };
 
+
   //get all categories
   const getAllCategory = async () => {
     try {
@@ -47,6 +48,7 @@ const CreateCategory = () => {
     getAllCategory();
   }, []);
 
+  // ekta kore type od plants add korbo
   //update category
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -68,7 +70,8 @@ const CreateCategory = () => {
       toast.error("Something went wrong");
     }
   };
-  //delete category
+  //type delete
+  //delete
   const handleDelete = async (pId) => {
     try {
       const { data } = await axios.delete(
@@ -106,7 +109,7 @@ const CreateCategory = () => {
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
