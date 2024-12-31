@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import Layout from './../components/Layout/Layout';
-import { useCart } from '../context/cart';
-import { useAuth } from '../context/auth';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import toast from 'react-hot-toast';
+import React, { useEffect, useState } from "react";
+import Layout from "./../components/Layout/Layout";
+import { useCart } from "../context/cart";
+import { useAuth } from "../context/auth";
+import { useNavigate } from "react-router-dom";
+import Payment from "./../components/Form/PaymentForm";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
   const navigate = useNavigate();
   const [showAddressForm, setShowAddressForm] = useState(false); // State to toggle the address form
-  const [newAddress, setNewAddress] = useState(auth?.user?.address || ''); // Single string for the address
-  const [address, setAddress] = useState(''); // State for the current delivery address
+  const [newAddress, setNewAddress] = useState(auth?.user?.address || ""); // Single string for the address
+  const [address, setAddress] = useState(""); // State for the current delivery address
 
   // Fetch current address when the component mounts
   useEffect(() => {
     const fetchAddress = async () => {
       try {
-        const { data } = await axios.get('/api/v1/auth/delivery-address');
+        const { data } = await axios.get("/api/v1/auth/delivery-address");
         if (data?.deliveryAddress) {
           setAddress(data.deliveryAddress);
           console.log(data.deliveryAddress);
         }
       } catch (error) {
         console.log(error);
-        toast.error('Error fetching delivery address');
+        toast.error("Error fetching delivery address");
       }
     };
 
@@ -38,19 +39,19 @@ const CartPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put('/api/v1/auth/delivery-address', {
+      const { data } = await axios.put("/api/v1/auth/delivery-address", {
         deliveryAddress: newAddress, // Send the full address as a single string
       });
       if (data?.error) {
         toast.error(data?.error);
       } else {
         setAddress(newAddress); // Update the current address displayed
-        toast.success('New Address Updated Successfully');
+        toast.success("New Address Updated Successfully");
         setShowAddressForm(false); // Close the form after submission
       }
     } catch (error) {
       console.log(error);
-      toast.error('Something went wrong');
+      toast.error("Something went wrong");
     }
   };
 
@@ -61,9 +62,9 @@ const CartPage = () => {
       cart?.forEach((item) => {
         total += item.price;
       });
-      return total.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
+      return total.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
       });
     } catch (error) {
       console.log(error);
@@ -77,7 +78,7 @@ const CartPage = () => {
       let index = myCart.findIndex((item) => item._id === pid);
       myCart.splice(index, 1);
       setCart(myCart);
-      localStorage.setItem('cart', JSON.stringify(myCart));
+      localStorage.setItem("cart", JSON.stringify(myCart));
     } catch (error) {
       console.log(error);
     }
@@ -94,9 +95,9 @@ const CartPage = () => {
             <h4 className="text-center">
               {cart?.length
                 ? `You have ${cart.length} items in your cart ${
-                    auth?.token ? '' : 'please login to checkout'
+                    auth?.token ? "" : "please login to checkout"
                   }`
-                : 'Your cart is empty'}
+                : "Your cart is empty"}
             </h4>
           </div>
         </div>
@@ -142,12 +143,13 @@ const CartPage = () => {
                 >
                   Update Address
                 </button>
+                <Payment total={totalPrice()} />
               </div>
             ) : showAddressForm ? (
               <form
                 onSubmit={handleSubmit}
                 className="card p-3 border rounded shadow-sm"
-                style={{ maxWidth: '400px', margin: '0 auto' }}
+                style={{ maxWidth: "400px", margin: "0 auto" }}
               >
                 <h5 className="mb-3">Update Delivery Address</h5>
                 <div className="mb-3">
@@ -177,7 +179,7 @@ const CartPage = () => {
                 {auth?.token ? (
                   <button
                     className="btn btn-outline-warning"
-                    onClick={() => navigate('/dashboard/user/profile')}
+                    onClick={() => navigate("/dashboard/user/profile")}
                   >
                     Update Address
                   </button>
@@ -185,8 +187,8 @@ const CartPage = () => {
                   <button
                     className="btn btn-outline-warning"
                     onClick={() =>
-                      navigate('/login', {
-                        state: '/cart',
+                      navigate("/login", {
+                        state: "/cart",
                       })
                     }
                   >
