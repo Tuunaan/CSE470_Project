@@ -194,3 +194,90 @@ export const updateProfileController = async (req,res) => {
     })
   }
 };
+
+//update delivery address
+export const updateDeliveryAddressController = async (req, res) => {
+  try {
+    const  {deliveryAddress}  = req.body;
+
+    console.log(deliveryAddress);
+    // Ensure deliveryAddress is provided
+    if (!deliveryAddress) {
+      return res.status(400).send({
+        success: false,
+        message: "Delivery address is required",
+      });
+    }
+
+    // Find the user by ID and update the delivery address
+    const updatedUser = await userModel.findByIdAndUpdate(
+      req.user._id,
+      { deliveryAddress },
+      { new: true }
+    );
+
+    res.status(200).send({
+      success: true,
+      message: "Delivery address updated successfully",
+      updatedUser,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error while updating delivery address",
+      error,
+    });
+  }
+};
+// show delivery address
+export const getDeliveryAddressController = async (req, res) => {
+  try {
+    // Fetch the user by ID
+    const user = await userModel.findById(req.user._id);
+
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        message: "User not found",
+      });
+    }
+    console.log(user.deliveryAddress);
+    // Respond with the delivery address
+    res.status(200).send({
+      success: true,
+      message: "Delivery address fetched successfully",
+      deliveryAddress: user.deliveryAddress,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while fetching delivery address",
+      error,
+    });
+  }
+};
+
+
+//getAll user info
+
+export const getAllUsersController = async (req, res) => {
+  try {
+    // Fetch all users
+    const users = await userModel.find({}, '-password'); // Exclude passwords for security
+
+    res.status(200).send({
+      success: true,
+      message: "Users fetched successfully",
+      users,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while fetching users",
+      error,
+    });
+  }
+};
